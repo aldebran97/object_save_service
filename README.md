@@ -13,10 +13,14 @@ HashRingFile hashRingFile = new HashRingFile("/home/HashRing.json");
   c1.dbName = "your bd name";
   c1.password = "your password";
   c1.userName = "your username";
-  ```
-
-ConnectionInfo c2 = new ConnectionInfo(); c2.port = 3306; c2.host = "your host"; c2.dbName = "your bd name"; c2.password
-= "your password"; c2.userName = "your username";
+  
+  ConnectionInfo c2 = new ConnectionInfo(); 
+  c2.port = 3306; 
+  c2.host = "your host"; 
+  c2.dbName = "your bd name"; 
+  c2.password= "your password"; 
+  c2.userName = "your username";
+ ```
 
 #### 初始化哈希环，自动生成n个节点（第一次使用才需要）
 
