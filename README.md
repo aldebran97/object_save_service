@@ -2,6 +2,7 @@
 ### 1. 海量数据分布式存储
 ### 2. 横向扩容减容（增加主机和减少主机），有负载均衡的策略
 ### 3. 实现了池化的数据库连接，连接复用在多线程下增加效率
+### 4. 快速的查询索引和分页索引
 
 ## 使用方法
 ### 开始之前，确保每个节点的数据库中都执行了sql/create.sql脚本，数据库名随意，接下来可以配置
@@ -32,28 +33,24 @@ HashRingFile hashRingFile = new HashRingFile("/home/HashRing.json");
 
 ```
   hashRingFile.init(2, Arrays.asList(c1, c2));
-  hashRingFile.save(); // 别忘了持久化
 ```
 
 #### 如果后续需要横向添加节点，调用addNode()，自动添加到合适的位置上
 
 ```
 // hashRingFile.addNode(connectionInfo); 
-// hashRingFile.save(); // 别忘了持久化
 ```
 
 #### 如果要移除节点，调用remove，自动寻找最适合移除的节点（负担小）
 
 ```
 // hashRingFile.remove(); 
-// hashRingFile.save(); // 别忘了持久化
 ```
 
 #### 也可以移除，指定节点，如果其负载大的话
 
 ```
 // hashRingFile.remove(1); 
-// hashRingFile.save();
 
 ```
 

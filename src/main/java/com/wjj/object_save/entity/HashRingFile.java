@@ -32,12 +32,15 @@ public class HashRingFile {
         hashRing.save(new FileOutputStream(file));
     }
 
-    public void init(int number, List<ConnectionInfo> connectionInfos) {
+    public void init(int number, List<ConnectionInfo> connectionInfos) throws IOException {
         hashRing.init(number, connectionInfos);
+        save();
     }
 
-    public int addNode(ConnectionInfo connectionInfo) throws SQLException {
-        return hashRing.addNode(connectionInfo);
+    public int addNode(ConnectionInfo connectionInfo) throws SQLException, IOException {
+        int result=hashRing.addNode(connectionInfo);
+        save();
+        return result;
     }
 
     public void saveData(Data data) throws SQLException {
@@ -53,13 +56,16 @@ public class HashRingFile {
     }
 
     // 指定移除节点
-    public void remove(int index) throws SQLException {
+    public void remove(int index) throws SQLException, IOException {
         hashRing.remove(index);
+        save();
     }
 
     // 自动移除节点
-    public int remove() throws SQLException {
-        return hashRing.remove();
+    public int remove() throws SQLException,IOException {
+        int result= hashRing.remove();
+        save();
+        return result;
     }
 
     public void destroy() throws SQLException {

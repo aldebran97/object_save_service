@@ -46,20 +46,16 @@ public class ObjectSaveApplication {
 
         // 初始化哈希环，自动生成n个节点
         hashRingFile.init(2, Arrays.asList(c1, c2));
-        hashRingFile.save(); // 别忘了持久化
 
         // 如果后续需要横向添加节点，调用addNode()，自动添加到合适的位置上
 //        hashRingFile.addNode(connectionInfo);
-//        hashRingFile.save(); // 别忘了持久化
 
 
         // 如果要移除节点，调用remove，自动寻找最适合移除的节点（负担小）
 //        hashRingFile.remove();
-//        hashRingFile.save(); // 别忘了持久化
 
         // 也可以移除，指定节点，如果其负载大的话
 //        hashRingFile.remove(1);
-//        hashRingFile.save();
 
         // !!! 如果配置已经确定，并且不再扩容减容，构造后不需要再调用init(), addNode()和remove()方法了，可以直接存取数据
 
