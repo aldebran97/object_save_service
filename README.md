@@ -1,3 +1,9 @@
+## 对象存储服务
+### 1. 海量数据分布式存储
+### 2. 横向扩容减容（增加主机和减少主机），有负载均衡的策略
+### 3. 实现了池化的数据库连接，连接复用在多线程下增加效率
+
+## 使用方法
 ### 开始之前，确保每个节点的数据库中都执行了sql/create.sql脚本，数据库名随意，接下来可以配置
 
 #### 创建哈希环
@@ -83,3 +89,4 @@ HashRingFile hashRingFile = new HashRingFile("/home/HashRing.json");
 
         // hashRingFile.destroy();
 ```
+#### 修改HashRing.max_connection可以修改连接池大小，取决于并发数的需要
