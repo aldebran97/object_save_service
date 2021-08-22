@@ -87,3 +87,5 @@ HashRingFile hashRingFile = new HashRingFile("/home/HashRing.json");
         // hashRingFile.destroy();
 ```
 #### 修改HashRing.max_connection可以修改连接池大小，取决于并发数的需要
+
+#### 不同节点不一定是不同主机，也可能是同一主机不同端口！
